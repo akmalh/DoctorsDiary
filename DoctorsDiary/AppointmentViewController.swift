@@ -15,7 +15,7 @@ class AppointmentViewController: UIViewController {
     @IBOutlet weak var newAppointmentTitleField: UITextField!
     @IBOutlet weak var newAppointmentDateField: UITextField!
     @IBOutlet weak var newAppointmentDescriptionField: UITextView!
-    
+    let datePickerView:UIDatePicker = UIDatePicker()
     
     
     
@@ -58,6 +58,37 @@ class AppointmentViewController: UIViewController {
         
     }
     
+
+    @IBAction func setNewAppointmentDate(sender: UITextField) {
+        
+        //let datePickerView:UIDatePicker = UIDatePicker()
+        
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+    }
+    
+    func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        
+        newAppointmentDateField.text = dateFormatter.stringFromDate(sender.date)
+        
+        
+    }
+    
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        
+//        var touch : UITouch! = touches.first as! UITouch
+//        
+//        datePickerView.hidden = true
+//    }
     
     @IBAction func bottomBarControl(sender: UISegmentedControl) {
         
