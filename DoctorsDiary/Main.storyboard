@@ -234,6 +234,9 @@
                     </view>
                     <connections>
                         <outlet property="createNewAppointmentView" destination="nPW-Qu-Qmc" id="LEO-Sq-PS4"/>
+                        <outlet property="newAppointmentDateField" destination="ybM-HH-O2A" id="c5D-dz-aHp"/>
+                        <outlet property="newAppointmentDescriptionField" destination="Adh-ro-3Br" id="lmT-uS-qTb"/>
+                        <outlet property="newAppointmentTitleField" destination="4kd-Kp-PSZ" id="x12-Bn-uk3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G4t-MN-BH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,6 +408,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="newNoteContentField" destination="7wZ-gA-ATh" id="vvQ-j2-rZk"/>
+                        <outlet property="newNoteDateField" destination="fJm-4d-R9K" id="wTg-QV-VO3"/>
+                        <outlet property="newNoteTopicField" destination="IRY-1I-hM8" id="eQ7-m4-C4p"/>
                         <outlet property="newNoteView" destination="OIy-wm-eEr" id="E8g-tH-aNU"/>
                     </connections>
                 </viewController>

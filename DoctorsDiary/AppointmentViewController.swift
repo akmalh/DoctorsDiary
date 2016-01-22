@@ -12,6 +12,13 @@ class AppointmentViewController: UIViewController {
     
     
     @IBOutlet weak var createNewAppointmentView: UIView!
+    @IBOutlet weak var newAppointmentTitleField: UITextField!
+    @IBOutlet weak var newAppointmentDateField: UITextField!
+    @IBOutlet weak var newAppointmentDescriptionField: UITextView!
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +37,25 @@ class AppointmentViewController: UIViewController {
     @IBAction func newAppointmentButton(sender: UIButton) {
         
         createNewAppointmentView.hidden = false
+        
+        newAppointmentTitleField.text = ""
+        newAppointmentDateField.text = ""
+        newAppointmentDescriptionField.text = ""
+        
     }
     
     @IBAction func saveNewAppointmentButton(sender: UIButton) {
         
         createNewAppointmentView.hidden = true
+        
+        var newAppointmentTitle = newAppointmentTitleField.text
+        var newAppointmentDate = newAppointmentDateField.text
+        var newAppointmentDescription = newAppointmentDescriptionField.text
+        
+        println(newAppointmentTitle)
+        println(newAppointmentDate)
+        println(newAppointmentDescription)
+        
     }
     
     

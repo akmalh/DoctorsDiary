@@ -11,6 +11,11 @@ import UIKit
 class NotesViewController: UIViewController {
 
     @IBOutlet weak var newNoteView: UIView!
+    @IBOutlet weak var newNoteTopicField: UITextField!
+    @IBOutlet weak var newNoteDateField: UITextField!
+    @IBOutlet weak var newNoteContentField: UITextView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +34,24 @@ class NotesViewController: UIViewController {
     @IBAction func createNewNoteButton(sender: UIButton) {
         
         newNoteView.hidden = false
+        
+        newNoteTopicField.text = ""
+        newNoteDateField.text = ""
+        newNoteContentField.text = ""
+        
     }
     
     @IBAction func saveNewNoteButton(sender: UIButton) {
         
         newNoteView.hidden = true
+        var newNoteTopic = newNoteTopicField.text
+        var newNoteDate = newNoteDateField.text
+        var newNoteContent = newNoteContentField.text
+        
+        println(newNoteTopic)
+        println(newNoteDate)
+        println(newNoteContent)
+        
     }
     
     
