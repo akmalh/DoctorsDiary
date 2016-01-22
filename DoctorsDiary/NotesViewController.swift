@@ -15,9 +15,6 @@ class NotesViewController: UIViewController {
     @IBOutlet weak var newNoteDateField: UITextField!
     @IBOutlet weak var newNoteContentField: UITextView!
     
-    let datePickerView:UIDatePicker = UIDatePicker()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,34 +33,14 @@ class NotesViewController: UIViewController {
     @IBAction func createNewNoteButton(sender: UIButton) {
         
         newNoteView.hidden = false
+        let currentDate = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        println(formatter.stringFromDate(currentDate))
         
         newNoteTopicField.text = ""
-        newNoteDateField.text = ""
+        newNoteDateField.text = formatter.stringFromDate(currentDate)
         newNoteContentField.text = ""
-        
-    }
-    
-    
-    @IBAction func setNewNoteDate(sender: UITextField) {
-        
-        datePickerView.datePickerMode = UIDatePickerMode.Date
-        
-        sender.inputView = datePickerView
-        
-        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        
-    }
-    
-    func datePickerValueChanged(sender:UIDatePicker) {
-        
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
-        
-        newNoteDateField.text = dateFormatter.stringFromDate(sender.date)
-        
         
     }
 
