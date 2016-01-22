@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C8500E9B1C52239500E8F1DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500E9A1C52239500E8F1DE /* AppDelegate.swift */; };
-		C8500E9D1C52239500E8F1DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500E9C1C52239500E8F1DE /* ViewController.swift */; };
-		C8500EA01C52239500E8F1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8500E9E1C52239500E8F1DE /* Main.storyboard */; };
 		C8500EA21C52239500E8F1DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8500EA11C52239500E8F1DE /* Images.xcassets */; };
 		C8500EA51C52239500E8F1DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8500EA31C52239500E8F1DE /* LaunchScreen.xib */; };
 		C8500EB11C52239600E8F1DE /* DoctorsDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EB01C52239600E8F1DE /* DoctorsDiaryTests.swift */; };
+		C8500EC11C52240900E8F1DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EBA1C52240900E8F1DE /* ProfileViewController.swift */; };
+		C8500EC21C52240900E8F1DE /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EBB1C52240900E8F1DE /* CalendarViewController.swift */; };
+		C8500EC31C52240900E8F1DE /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EBC1C52240900E8F1DE /* NotesViewController.swift */; };
+		C8500EC41C52240900E8F1DE /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EBD1C52240900E8F1DE /* AppointmentViewController.swift */; };
+		C8500EC51C52240900E8F1DE /* NoteContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EBE1C52240900E8F1DE /* NoteContainerController.swift */; };
+		C8500EC61C52240900E8F1DE /* AppointmentContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */; };
+		C8500EC71C52240900E8F1DE /* CalendarContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */; };
+		C8500ECD1C5225C100E8F1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8500ECC1C5225C100E8F1DE /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +35,19 @@
 		C8500E951C52239500E8F1DE /* DoctorsDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoctorsDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8500E991C52239500E8F1DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8500E9A1C52239500E8F1DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C8500E9C1C52239500E8F1DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C8500E9F1C52239500E8F1DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8500EA11C52239500E8F1DE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C8500EA41C52239500E8F1DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C8500EAA1C52239600E8F1DE /* DoctorsDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoctorsDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8500EAF1C52239600E8F1DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8500EB01C52239600E8F1DE /* DoctorsDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsDiaryTests.swift; sourceTree = "<group>"; };
+		C8500EBA1C52240900E8F1DE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C8500EBB1C52240900E8F1DE /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		C8500EBC1C52240900E8F1DE /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		C8500EBD1C52240900E8F1DE /* AppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
+		C8500EBE1C52240900E8F1DE /* NoteContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteContainerController.swift; sourceTree = "<group>"; };
+		C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentContainerController.swift; sourceTree = "<group>"; };
+		C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContainerController.swift; sourceTree = "<group>"; };
+		C8500ECC1C5225C100E8F1DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +90,11 @@
 			isa = PBXGroup;
 			children = (
 				C8500E9A1C52239500E8F1DE /* AppDelegate.swift */,
-				C8500E9C1C52239500E8F1DE /* ViewController.swift */,
-				C8500E9E1C52239500E8F1DE /* Main.storyboard */,
+				C8500EBA1C52240900E8F1DE /* ProfileViewController.swift */,
+				C8500EBB1C52240900E8F1DE /* CalendarViewController.swift */,
+				C8500EBC1C52240900E8F1DE /* NotesViewController.swift */,
+				C8500EBD1C52240900E8F1DE /* AppointmentViewController.swift */,
+				C8500ECC1C5225C100E8F1DE /* Main.storyboard */,
 				C8500EA11C52239500E8F1DE /* Images.xcassets */,
 				C8500EA31C52239500E8F1DE /* LaunchScreen.xib */,
 				C8500E981C52239500E8F1DE /* Supporting Files */,
@@ -90,6 +105,9 @@
 		C8500E981C52239500E8F1DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C8500EBE1C52240900E8F1DE /* NoteContainerController.swift */,
+				C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */,
+				C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */,
 				C8500E991C52239500E8F1DE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -192,7 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8500EA01C52239500E8F1DE /* Main.storyboard in Resources */,
+				C8500ECD1C5225C100E8F1DE /* Main.storyboard in Resources */,
 				C8500EA51C52239500E8F1DE /* LaunchScreen.xib in Resources */,
 				C8500EA21C52239500E8F1DE /* Images.xcassets in Resources */,
 			);
@@ -212,7 +230,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8500E9D1C52239500E8F1DE /* ViewController.swift in Sources */,
+				C8500EC71C52240900E8F1DE /* CalendarContainerController.swift in Sources */,
+				C8500EC51C52240900E8F1DE /* NoteContainerController.swift in Sources */,
+				C8500EC41C52240900E8F1DE /* AppointmentViewController.swift in Sources */,
+				C8500EC21C52240900E8F1DE /* CalendarViewController.swift in Sources */,
+				C8500EC31C52240900E8F1DE /* NotesViewController.swift in Sources */,
+				C8500EC11C52240900E8F1DE /* ProfileViewController.swift in Sources */,
+				C8500EC61C52240900E8F1DE /* AppointmentContainerController.swift in Sources */,
 				C8500E9B1C52239500E8F1DE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,14 +260,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C8500E9E1C52239500E8F1DE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C8500E9F1C52239500E8F1DE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C8500EA31C52239500E8F1DE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -411,6 +427,7 @@
 				C8500EB61C52239600E8F1DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8500EB71C52239600E8F1DE /* Build configuration list for PBXNativeTarget "DoctorsDiaryTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +436,7 @@
 				C8500EB91C52239600E8F1DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
