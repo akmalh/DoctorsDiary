@@ -15,6 +15,8 @@ class NotesViewController: UIViewController {
     @IBOutlet weak var newNoteDateField: UITextField!
     @IBOutlet weak var newNoteContentField: UITextView!
     
+    let datePickerView:UIDatePicker = UIDatePicker()
+    
     
     
     override func viewDidLoad() {
@@ -41,6 +43,32 @@ class NotesViewController: UIViewController {
         
     }
     
+    
+    @IBAction func setNewNoteDate(sender: UITextField) {
+        
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        
+        sender.inputView = datePickerView
+        
+        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+    }
+    
+    func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        
+        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        
+        newNoteDateField.text = dateFormatter.stringFromDate(sender.date)
+        
+        
+    }
+
+    
+    
     @IBAction func saveNewNoteButton(sender: UIButton) {
         
         newNoteView.hidden = true
@@ -53,6 +81,8 @@ class NotesViewController: UIViewController {
         println(newNoteContent)
         
     }
+    
+    
     
     
 

@@ -79,7 +79,7 @@ class AppointmentViewController: UIViewController {
         dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
         
         newAppointmentDateField.text = dateFormatter.stringFromDate(sender.date)
-        
+
         
     }
     
