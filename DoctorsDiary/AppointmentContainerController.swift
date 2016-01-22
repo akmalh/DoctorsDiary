@@ -14,7 +14,8 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
 
     @IBOutlet weak var appointmentList: UITableView!
     
-    var appointmentListItems: [String] = ["Apple", "Banana", "Orange"]
+    var appointmentTitleListItems: [String] = ["Apple", "Banana", "Orange"]
+    var appointmentDateListItems: [String] = ["10/01/2016", "11/02/2016", "23/04/2016"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         var rowCount = 0
-        rowCount = appointmentListItems.count
+        rowCount = appointmentTitleListItems.count
         return rowCount
     }
     
@@ -42,13 +43,14 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
     {
         let myCell: UITableViewCell = appointmentList.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
-        myCell.textLabel?.text = appointmentListItems[indexPath.row]
+        myCell.textLabel?.text = appointmentTitleListItems[indexPath.row]
+        myCell.detailTextLabel?.text = appointmentDateListItems[indexPath.row]
         return myCell
     }
     
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         
-        var itemSelected = appointmentListItems[indexPath.row]
+        var itemSelected = appointmentTitleListItems[indexPath.row]
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)

@@ -12,6 +12,7 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
     
     @IBOutlet weak var noteList: UITableView!
     var noteListItems: [String] = ["Apple", "Banana", "Orange"]
+    var noteDateListItems: [String] = ["10/01/2016", "11/02/2016", "23/04/2016"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
         let myCell: UITableViewCell = noteList.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
         
         myCell.textLabel?.text = noteListItems[indexPath.row]
+        myCell.detailTextLabel?.text = noteDateListItems[indexPath.row]
         return myCell
     }
     
