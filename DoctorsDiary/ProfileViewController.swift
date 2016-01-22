@@ -6,8 +6,6 @@
 //  Copyright (c) 2016 Akmal Hossain. All rights reserved.
 //
 
-// testing
-
 import UIKit
 
 class ProfileViewController: UIViewController {
