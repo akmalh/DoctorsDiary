@@ -25,6 +25,7 @@ class NotesViewController: UIViewController {
         
         newNoteView.hidden = true
         initializeNotesDatabase()
+        //updateNoteList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,7 +104,7 @@ class NotesViewController: UIViewController {
             println("Error: \(notesDB.lastErrorMessage())")
         }
         
-        updateNoteList()
+        //updateNoteList()
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
@@ -193,55 +194,6 @@ class NotesViewController: UIViewController {
             }
         }
 
-    }
-    
-    func updateNoteList ()
-    {
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
-            
-        let docsDir = dirPaths[0] as! String
-            
-        databasePath = docsDir.stringByAppendingPathComponent("notes.db")
-            
-        let currentDate = NSDate()
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .MediumStyle
-        //println(formatter.stringFromDate(currentDate))
-            
-        let notesDB = FMDatabase(path: databasePath as String)
-            
-        if notesDB.open() {
-            let querySQL = "SELECT topic, content, date FROM NOTES WHERE date = '\(formatter.stringFromDate(currentDate))'"
-                
-            let results:FMResultSet? = notesDB.executeQuery(querySQL,withArgumentsInArray: nil)
-                
-            if results?.next() == true {
-                    //                address.text = results?.stringForColumn("address")
-                    //                phone.text = results?.stringForColumn("phone")
-                    //                status.text = "Record Found"
-                    
-                println(results)
-                let topic = (results?.stringForColumn("topic"))!
-                let date = (results?.stringForColumn("date"))!
-                NoteContainerController.noteListItems.append("\(topic)")
-                NoteContainerController.noteDateListItems.append("\(date)")
-                
-                //println(NoteContainerController.noteListItems)
-                
-                
-            } else {
-                    //                status.text = "Record not found"
-                    //                address.text = ""
-                    //                phone.text = ""
-                    
-                println("Record not found")
-            }
-            notesDB.close()
-        } else {
-            println("Error: \(notesDB.lastErrorMessage())")
-        }
-            
     }
 
 }
