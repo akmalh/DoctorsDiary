@@ -221,9 +221,9 @@ class NotesViewController: UIViewController {
                     //                phone.text = results?.stringForColumn("phone")
                     //                status.text = "Record Found"
                     
-                println("From container")
-                let topic = (results?.stringForColumn("topic"))
-                let date = (results?.stringForColumn("date"))
+                println(results)
+                let topic = (results?.stringForColumn("topic"))!
+                let date = (results?.stringForColumn("date"))!
                 NoteContainerController.noteListItems.append("\(topic)")
                 NoteContainerController.noteDateListItems.append("\(date)")
                 
