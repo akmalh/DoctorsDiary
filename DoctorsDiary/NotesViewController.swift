@@ -25,7 +25,6 @@ class NotesViewController: UIViewController {
         
         newNoteView.hidden = true
         initializeNotesDatabase()
-        //updateNoteList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,8 +102,7 @@ class NotesViewController: UIViewController {
         } else {
             println("Error: \(notesDB.lastErrorMessage())")
         }
-        
-        //updateNoteList()
+
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         

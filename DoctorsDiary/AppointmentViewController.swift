@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppointmentViewController: UIViewController {
+class AppointmentViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var createNewAppointmentView: UIView!
@@ -26,6 +26,9 @@ class AppointmentViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         createNewAppointmentView.hidden = true
+        newAppointmentTitleField.delegate = self
+        newAppointmentDateField.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,31 +66,55 @@ class AppointmentViewController: UIViewController {
         
         //let datePickerView:UIDatePicker = UIDatePicker()
         
-        datePickerView.datePickerMode = UIDatePickerMode.Date
-        
-        sender.inputView = datePickerView
-        
-        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+//        datePickerView.datePickerMode = UIDatePickerMode.Date
+//        
+//        sender.inputView = datePickerView
+//        
+//        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+    
+        datePickerView.datePickerMode = .Date
+        newAppointmentDateField.inputView = datePickerView
+        var toolBar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
+        toolBar.tintColor = UIColor.grayColor()
+        var doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "showSelectedDate")
+        var space: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        toolBar.items = [space, doneBtn]
+        newAppointmentDateField.inputAccessoryView = toolBar
     }
     
-    func datePickerValueChanged(sender:UIDatePicker) {
-        
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
-        
-        newAppointmentDateField.text = dateFormatter.stringFromDate(sender.date)
-
-        
+    func showSelectedDate()
+    {
+        var formatter: NSDateFormatter = NSDateFormatter()
+        formatter.dateFormat = "dd/MMM/YYYY hh:min a"
+        newAppointmentDateField.text = "\(formatter.stringFromDate(datePickerView.date))"
+        newAppointmentDateField.resignFirstResponder()
     }
+    
+    func setDateField()
+    {
+        println("here")
+        newAppointmentDateField.resignFirstResponder()
+    }
+    
+//    func datePickerValueChanged(sender:UIDatePicker) {
+//        
+//        let dateFormatter = NSDateFormatter()
+//        
+//        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+//        
+//        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+//        
+//        newAppointmentDateField.text = dateFormatter.stringFromDate(sender.date)
+//        newAppointmentDateField.resignFirstResponder()
+//        
+//    }
+    
+    
     
 //    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
 //        
 //        var touch : UITouch! = touches.first as! UITouch
 //        
-//        datePickerView.hidden = true
 //    }
     
     @IBAction func bottomBarControl(sender: UISegmentedControl) {
