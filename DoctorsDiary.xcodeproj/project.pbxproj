@@ -19,6 +19,12 @@
 		C8500EC61C52240900E8F1DE /* AppointmentContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */; };
 		C8500EC71C52240900E8F1DE /* CalendarContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */; };
 		C8500ECD1C5225C100E8F1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8500ECC1C5225C100E8F1DE /* Main.storyboard */; };
+		C8B6C0DA1C53465C00734DA7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D11C53465C00734DA7 /* FMDatabase.m */; };
+		C8B6C0DB1C53465C00734DA7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D31C53465C00734DA7 /* FMResultSet.m */; };
+		C8B6C0DC1C53465C00734DA7 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D51C53465C00734DA7 /* FMDatabaseQueue.m */; };
+		C8B6C0DD1C53465C00734DA7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D71C53465C00734DA7 /* FMDatabaseAdditions.m */; };
+		C8B6C0DE1C53465C00734DA7 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D91C53465C00734DA7 /* FMDatabasePool.m */; };
+		C8B6C0E01C5350F100734DA7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B6C0DF1C5350F100734DA7 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,19 @@
 		C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentContainerController.swift; sourceTree = "<group>"; };
 		C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContainerController.swift; sourceTree = "<group>"; };
 		C8500ECC1C5225C100E8F1DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C8B6C0CE1C53465B00734DA7 /* DoctorsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoctorsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
+		C8B6C0CF1C53465C00734DA7 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		C8B6C0D01C53465C00734DA7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		C8B6C0D11C53465C00734DA7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		C8B6C0D21C53465C00734DA7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		C8B6C0D31C53465C00734DA7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		C8B6C0D41C53465C00734DA7 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		C8B6C0D51C53465C00734DA7 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		C8B6C0D61C53465C00734DA7 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		C8B6C0D71C53465C00734DA7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		C8B6C0D81C53465C00734DA7 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		C8B6C0D91C53465C00734DA7 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		C8B6C0DF1C5350F100734DA7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8B6C0E01C5350F100734DA7 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +91,7 @@
 		C8500E8C1C52239500E8F1DE = {
 			isa = PBXGroup;
 			children = (
+				C8B6C0DF1C5350F100734DA7 /* libsqlite3.dylib */,
 				C8500E971C52239500E8F1DE /* DoctorsDiary */,
 				C8500EAD1C52239600E8F1DE /* DoctorsDiaryTests */,
 				C8500E961C52239500E8F1DE /* Products */,
@@ -108,7 +129,19 @@
 				C8500EBE1C52240900E8F1DE /* NoteContainerController.swift */,
 				C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */,
 				C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */,
+				C8B6C0CF1C53465C00734DA7 /* FMDB.h */,
+				C8B6C0D01C53465C00734DA7 /* FMDatabase.h */,
+				C8B6C0D11C53465C00734DA7 /* FMDatabase.m */,
+				C8B6C0D21C53465C00734DA7 /* FMResultSet.h */,
+				C8B6C0D31C53465C00734DA7 /* FMResultSet.m */,
+				C8B6C0D41C53465C00734DA7 /* FMDatabaseQueue.h */,
+				C8B6C0D51C53465C00734DA7 /* FMDatabaseQueue.m */,
+				C8B6C0D61C53465C00734DA7 /* FMDatabaseAdditions.h */,
+				C8B6C0D71C53465C00734DA7 /* FMDatabaseAdditions.m */,
+				C8B6C0D81C53465C00734DA7 /* FMDatabasePool.h */,
+				C8B6C0D91C53465C00734DA7 /* FMDatabasePool.m */,
 				C8500E991C52239500E8F1DE /* Info.plist */,
+				C8B6C0CE1C53465B00734DA7 /* DoctorsDiary-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -232,12 +265,17 @@
 			files = (
 				C8500EC71C52240900E8F1DE /* CalendarContainerController.swift in Sources */,
 				C8500EC51C52240900E8F1DE /* NoteContainerController.swift in Sources */,
+				C8B6C0DE1C53465C00734DA7 /* FMDatabasePool.m in Sources */,
 				C8500EC41C52240900E8F1DE /* AppointmentViewController.swift in Sources */,
+				C8B6C0DA1C53465C00734DA7 /* FMDatabase.m in Sources */,
+				C8B6C0DB1C53465C00734DA7 /* FMResultSet.m in Sources */,
 				C8500EC21C52240900E8F1DE /* CalendarViewController.swift in Sources */,
 				C8500EC31C52240900E8F1DE /* NotesViewController.swift in Sources */,
 				C8500EC11C52240900E8F1DE /* ProfileViewController.swift in Sources */,
+				C8B6C0DC1C53465C00734DA7 /* FMDatabaseQueue.m in Sources */,
 				C8500EC61C52240900E8F1DE /* AppointmentContainerController.swift in Sources */,
 				C8500E9B1C52239500E8F1DE /* AppDelegate.swift in Sources */,
+				C8B6C0DD1C53465C00734DA7 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,9 +396,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DoctorsDiary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DoctorsDiary/DoctorsDiary-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -368,9 +409,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DoctorsDiary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DoctorsDiary/DoctorsDiary-Bridging-Header.h";
 			};
 			name = Release;
 		};
