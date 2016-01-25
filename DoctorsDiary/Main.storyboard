@@ -169,10 +169,6 @@
                                         <rect key="frame" x="119" y="84" width="441" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="setAppointmentDate:" destination="ogB-yS-uo8" eventType="editingDidEnd" id="SXr-7a-4og"/>
-                                            <action selector="setNewAppointmentDate:" destination="ogB-yS-uo8" eventType="editingDidBegin" id="D7d-GL-GUR"/>
-                                        </connections>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adh-ro-3Br">
                                         <rect key="frame" x="8" y="159" width="552" height="192"/>
@@ -348,9 +344,6 @@
                                         <rect key="frame" x="114" y="80" width="446" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="setNewNoteDate:" destination="kXs-Xw-1da" eventType="editingDidBegin" id="Dw3-5B-zwO"/>
-                                        </connections>
                                     </textField>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wZ-gA-ATh">
                                         <rect key="frame" x="8" y="156" width="552" height="205"/>

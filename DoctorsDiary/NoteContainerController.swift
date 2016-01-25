@@ -81,19 +81,16 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
         let currentDate = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
-        //println(formatter.stringFromDate(currentDate))
         
         let notesDB = FMDatabase(path: databasePath as String)
         
         if notesDB.open() {
-            let querySQL = "SELECT topic, content, date FROM NOTES WHERE date = '\(formatter.stringFromDate(currentDate))'"
+            
+            let querySQL = "SELECT topic, content, date FROM NOTES"
             
             let results:FMResultSet? = notesDB.executeQuery(querySQL,withArgumentsInArray: nil)
             
             if results?.next() == true {
-                //                address.text = results?.stringForColumn("address")
-                //                phone.text = results?.stringForColumn("phone")
-                //                status.text = "Record Found"
                 
                 while (results!.next()) {
                     
@@ -106,9 +103,6 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
                 
                 
             } else {
-                //                status.text = "Record not found"
-                //                address.text = ""
-                //                phone.text = ""
                 
                 println("Record not found")
             }

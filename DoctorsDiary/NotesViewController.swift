@@ -173,7 +173,12 @@ class NotesViewController: UIViewController {
         
         databasePath = docsDir.stringByAppendingPathComponent("notes.db")
         
+        println("Notes DB path")
+        println(databasePath)
+        
         if !filemgr.fileExistsAtPath(databasePath as String) {
+            
+            println("Creating New Notes DB")
             
             let notesDB = FMDatabase(path: databasePath as String)
             

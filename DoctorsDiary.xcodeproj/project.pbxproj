@@ -19,6 +19,8 @@
 		C8500EC61C52240900E8F1DE /* AppointmentContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */; };
 		C8500EC71C52240900E8F1DE /* CalendarContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */; };
 		C8500ECD1C5225C100E8F1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8500ECC1C5225C100E8F1DE /* Main.storyboard */; };
+		C8871FEF1C560F6000CA160F /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8871FEE1C560F6000CA160F /* DBManager.swift */; };
+		C8871FF11C56106B00CA160F /* DBQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8871FF01C56106B00CA160F /* DBQueries.swift */; };
 		C8B6C0DA1C53465C00734DA7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D11C53465C00734DA7 /* FMDatabase.m */; };
 		C8B6C0DB1C53465C00734DA7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D31C53465C00734DA7 /* FMResultSet.m */; };
 		C8B6C0DC1C53465C00734DA7 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D51C53465C00734DA7 /* FMDatabaseQueue.m */; };
@@ -54,6 +56,8 @@
 		C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentContainerController.swift; sourceTree = "<group>"; };
 		C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContainerController.swift; sourceTree = "<group>"; };
 		C8500ECC1C5225C100E8F1DE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C8871FEE1C560F6000CA160F /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		C8871FF01C56106B00CA160F /* DBQueries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQueries.swift; sourceTree = "<group>"; };
 		C8B6C0CE1C53465B00734DA7 /* DoctorsDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoctorsDiary-Bridging-Header.h"; sourceTree = "<group>"; };
 		C8B6C0CF1C53465C00734DA7 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		C8B6C0D01C53465C00734DA7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				C8500EBE1C52240900E8F1DE /* NoteContainerController.swift */,
 				C8500EBF1C52240900E8F1DE /* AppointmentContainerController.swift */,
 				C8500EC01C52240900E8F1DE /* CalendarContainerController.swift */,
+				C8871FEE1C560F6000CA160F /* DBManager.swift */,
+				C8871FF01C56106B00CA160F /* DBQueries.swift */,
 				C8B6C0CF1C53465C00734DA7 /* FMDB.h */,
 				C8B6C0D01C53465C00734DA7 /* FMDatabase.h */,
 				C8B6C0D11C53465C00734DA7 /* FMDatabase.m */,
@@ -264,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8500EC71C52240900E8F1DE /* CalendarContainerController.swift in Sources */,
+				C8871FF11C56106B00CA160F /* DBQueries.swift in Sources */,
 				C8500EC51C52240900E8F1DE /* NoteContainerController.swift in Sources */,
 				C8B6C0DE1C53465C00734DA7 /* FMDatabasePool.m in Sources */,
 				C8500EC41C52240900E8F1DE /* AppointmentViewController.swift in Sources */,
@@ -276,6 +283,7 @@
 				C8500EC61C52240900E8F1DE /* AppointmentContainerController.swift in Sources */,
 				C8500E9B1C52239500E8F1DE /* AppDelegate.swift in Sources */,
 				C8B6C0DD1C53465C00734DA7 /* FMDatabaseAdditions.m in Sources */,
+				C8871FEF1C560F6000CA160F /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

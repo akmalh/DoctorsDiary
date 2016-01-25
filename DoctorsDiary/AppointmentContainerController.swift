@@ -14,13 +14,14 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
 
     @IBOutlet weak var appointmentList: UITableView!
     
-    var appointmentTitleListItems: [String] = ["Apple", "Banana", "Orange"]
-    var appointmentDateListItems: [String] = ["10/01/2016", "11/02/2016", "23/04/2016"]
+    var appointmentTitleListItems: [String] = [""]
+    var appointmentDateListItems: [String] = [""]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadAppointmentList()
         
         appointmentList.delegate = self
         appointmentList.dataSource = self
@@ -62,5 +63,51 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
     {
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
     }
+    
+    func loadAppointmentList ()
+    {
+        var databasePath = NSString()
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
+        
+        let docsDir = dirPaths[0] as! String
+        
+        databasePath = docsDir.stringByAppendingPathComponent("appointments.db")
+        
+        let currentDate = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        
+        let appointmentsDB = FMDatabase(path: databasePath as String)
+        
+        if appointmentsDB.open() {
+            
+            let querySQL = "SELECT title, description, date FROM APPOINTMENTS"
+            
+            let results:FMResultSet? = appointmentsDB.executeQuery(querySQL,withArgumentsInArray: nil)
+            
+            if results?.next() == true {
+                
+                while (results!.next()) {
+                    
+                    let title = (results?.stringForColumn("title"))!
+                    let date = (results?.stringForColumn("date"))!
+                    appointmentTitleListItems.append("\(title)")
+                    appointmentDateListItems.append("\(date)")
+                    
+                }
+                
+                
+            } else {
+                
+                println("Record not found")
+            }
+            appointmentsDB.close()
+        } else {
+            println("Error: \(appointmentsDB.lastErrorMessage())")
+        }
+        
+    }
+
     
 }
