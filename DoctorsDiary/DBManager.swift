@@ -34,9 +34,24 @@ class DBManager{
         } else{
             println("DoctorsDiary: Database tables created successfully")
         }
+
+        return true
+    }
+    
+    func createTables() -> Bool {
         
-
-
+        println("DoctorsDiary: createTables()")
+        
+        if !ddDatabase.executeUpdate(dbQueries.create_appointments_table, withArgumentsInArray: nil) {
+            println("DoctorsDiary: Failed to create table: \(ddDatabase.lastErrorMessage())")
+            return false
+        }
+        
+        if !ddDatabase.executeUpdate(dbQueries.create_notes_table, withArgumentsInArray: nil) {
+            println("DoctorsDiary: Failed to create table: \(ddDatabase.lastErrorMessage())")
+            return false
+        }
+        
         return true
     }
 }
