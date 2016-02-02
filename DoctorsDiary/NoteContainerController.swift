@@ -11,12 +11,8 @@ import UIKit
 class NoteContainerController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var noteList: UITableView!
-    //var noteListItems: [String] = ["Apple", "Banana", "Orange"]
     var noteListItems: [String] = [""]
-    //var noteDateListItems: [String] = ["10/01/2016", "11/02/2016", "23/04/2016"]
     var noteDateListItems: [String] = [""]
-    
-    //var databasePath = NSString()
 
     override func viewDidLoad() {
         super.viewDidLoad()

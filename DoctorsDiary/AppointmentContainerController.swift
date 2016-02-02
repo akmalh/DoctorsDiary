@@ -86,6 +86,7 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
             
             let results:FMResultSet? = doctorsDB.executeQuery(querySQL,withArgumentsInArray: nil)
             
+            
             if results?.next() == true {
                 
                 while (results!.next()) {
