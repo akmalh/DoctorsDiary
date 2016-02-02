@@ -76,19 +76,21 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
         
         let docsDir = dirPaths[0] as! String
         
-        databasePath = docsDir.stringByAppendingPathComponent("notes.db")
+        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
         
         let currentDate = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         
-        let notesDB = FMDatabase(path: databasePath as String)
+        let doctorsDB = FMDatabase(path: databasePath as String)
         
-        if notesDB.open() {
+        if doctorsDB.open() {
             
             let querySQL = "SELECT topic, content, date FROM NOTES"
             
-            let results:FMResultSet? = notesDB.executeQuery(querySQL,withArgumentsInArray: nil)
+            let results:FMResultSet? = doctorsDB.executeQuery(querySQL,withArgumentsInArray: nil)
+            
+            println(results?.columnCount())
             
             if results?.next() == true {
                 
@@ -106,9 +108,9 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
                 
                 println("Record not found")
             }
-            notesDB.close()
+            doctorsDB.close()
         } else {
-            println("Error: \(notesDB.lastErrorMessage())")
+            println("Error: \(doctorsDB.lastErrorMessage())")
         }
         
     }

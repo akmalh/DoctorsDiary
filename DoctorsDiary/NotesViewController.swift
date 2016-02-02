@@ -15,7 +15,7 @@ class NotesViewController: UIViewController {
     @IBOutlet weak var newNoteDateField: UITextField!
     @IBOutlet weak var newNoteContentField: UITextView!
     
-    var databasePath = NSString()
+    //var databasePath = NSString()
     
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class NotesViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         newNoteView.hidden = true
-        initializeNotesDatabase()
+        //initializeNotesDatabase()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,19 +56,27 @@ class NotesViewController: UIViewController {
         var newNoteDate = newNoteDateField.text
         var newNoteContent = newNoteContentField.text
         
-        println(newNoteTopic)
-        println(newNoteDate)
-        println(newNoteContent)
-        
         // Saving note to the database
         
-        let notesDB = FMDatabase(path: databasePath as String)
+        var databasePath = NSString()
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
         
-        if notesDB.open() {
+        let docsDir = dirPaths[0] as! String
+        
+        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
+        
+        let currentDate = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        
+        let doctorsDB = FMDatabase(path: databasePath as String)
+        
+        if doctorsDB.open() {
             
             let insertSQL = "INSERT INTO NOTES (topic, date, content) VALUES ('\(newNoteTopicField.text)', '\(newNoteDateField.text)', '\(newNoteContentField.text)')"
             
-            let result = notesDB.executeUpdate(insertSQL,
+            let result = doctorsDB.executeUpdate(insertSQL,
                 withArgumentsInArray: nil)
             
             if !result {
@@ -86,7 +94,7 @@ class NotesViewController: UIViewController {
                 })
                 
                 
-                println("Error: \(notesDB.lastErrorMessage())")
+                println("Error: \(doctorsDB.lastErrorMessage())")
             } else {
                 //status.text = "Contact Added"
                 
@@ -100,8 +108,50 @@ class NotesViewController: UIViewController {
                 })
             }
         } else {
-            println("Error: \(notesDB.lastErrorMessage())")
+            println("Error: \(doctorsDB.lastErrorMessage())")
         }
+
+        
+        //let notesDB = FMDatabase(path: databasePath as String)
+        
+//        if notesDB.open() {
+//            
+//            let insertSQL = "INSERT INTO NOTES (topic, date, content) VALUES ('\(newNoteTopicField.text)', '\(newNoteDateField.text)', '\(newNoteContentField.text)')"
+//            
+//            let result = notesDB.executeUpdate(insertSQL,
+//                withArgumentsInArray: nil)
+//            
+//            if !result {
+//                //status.text = "Failed to add contact"
+//                
+//                // Generating alert
+//                
+//                var alert = UIAlertView(title: "Failed to add note", message: "Failed to add note", delegate: nil, cancelButtonTitle: "Close")
+//                alert.title = "Failed"
+//                
+//                // Move to the UI thread
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    // Show the alert
+//                    alert.show()
+//                })
+//                
+//                
+//                println("Error: \(notesDB.lastErrorMessage())")
+//            } else {
+//                //status.text = "Contact Added"
+//                
+//                var alert = UIAlertView(title: "Successfully saved note", message: "Successfully saved note", delegate: nil, cancelButtonTitle: "Close.")
+//                alert.title = "Success"
+//                
+//                // Move to the UI thread
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    // Show the alert
+//                    alert.show()
+//                })
+//            }
+//        } else {
+//            println("Error: \(notesDB.lastErrorMessage())")
+//        }
 
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -162,41 +212,38 @@ class NotesViewController: UIViewController {
         
     }
     
-    func initializeNotesDatabase ()
-    {
-        // Check and create DB
-        
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
-        
-        let docsDir = dirPaths[0] as! String
-        
-        databasePath = docsDir.stringByAppendingPathComponent("notes.db")
-        
-        println("Notes DB path")
-        println(databasePath)
-        
-        if !filemgr.fileExistsAtPath(databasePath as String) {
-            
-            println("Creating New Notes DB")
-            
-            let notesDB = FMDatabase(path: databasePath as String)
-            
-            if notesDB == nil {
-                println("Error: \(notesDB.lastErrorMessage())")
-            }
-            
-            if notesDB.open() {
-                let sql_stmt = "CREATE TABLE IF NOT EXISTS NOTES (ID INTEGER PRIMARY KEY AUTOINCREMENT, TOPIC TEXT, DATE TEXT, CONTENT TEXT)"
-                if !notesDB.executeStatements(sql_stmt) {
-                    println("Error: \(notesDB.lastErrorMessage())")
-                }
-                notesDB.close()
-            } else {
-                println("Error: \(notesDB.lastErrorMessage())")
-            }
-        }
-
-    }
+//    func initializeNotesDatabase ()
+//    {
+//        // Check and create DB
+//        
+//        let filemgr = NSFileManager.defaultManager()
+//        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
+//        
+//        let docsDir = dirPaths[0] as! String
+//        
+//        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
+//        
+//        if !filemgr.fileExistsAtPath(databasePath as String) {
+//            
+//            println("No DB found")
+//            
+//            let notesDB = FMDatabase(path: databasePath as String)
+//            
+//            if notesDB == nil {
+//                println("Error: \(notesDB.lastErrorMessage())")
+//            }
+//            
+//            if notesDB.open() {
+//                let sql_stmt = "CREATE TABLE IF NOT EXISTS NOTES (ID INTEGER PRIMARY KEY AUTOINCREMENT, TOPIC TEXT, DATE TEXT, CONTENT TEXT)"
+//                if !notesDB.executeStatements(sql_stmt) {
+//                    println("Error: \(notesDB.lastErrorMessage())")
+//                }
+//                notesDB.close()
+//            } else {
+//                println("Error: \(notesDB.lastErrorMessage())")
+//            }
+//        }
+//
+//    }
 
 }
