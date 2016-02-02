@@ -28,10 +28,6 @@ class AppointmentViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         createNewAppointmentView.hidden = true
-        //newAppointmentTitleField.delegate = self
-        //newAppointmentDateField.delegate = self
-        
-        initializeAppointmentsDatabase()
         
     }
 
@@ -63,19 +59,28 @@ class AppointmentViewController: UIViewController {
         var newAppointmentDate = newAppointmentDateField.text
         var newAppointmentDescription = newAppointmentDescriptionField.text
         
-        println(newAppointmentTitle)
-        println(newAppointmentDate)
-        println(newAppointmentDescription)
+        // Saving appointments to the database
         
-        // Saving note to the database
+        var databasePath = NSString()
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
         
-        let appointmentsDB = FMDatabase(path: databasePath as String)
+        let docsDir = dirPaths[0] as! String
         
-        if appointmentsDB.open() {
+        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
+        
+        let currentDate = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        
+        let doctorsDB = FMDatabase(path: databasePath as String)
+        
+        if doctorsDB.open() {
+
             
             let insertSQL = "INSERT INTO APPOINTMENTS (title, date, description) VALUES ('\(newAppointmentTitleField.text)', '\(newAppointmentDateField.text)', '\(newAppointmentDescriptionField.text)')"
             
-            let result = appointmentsDB.executeUpdate(insertSQL,
+            let result = doctorsDB.executeUpdate(insertSQL,
                 withArgumentsInArray: nil)
             
             if !result {
@@ -93,7 +98,7 @@ class AppointmentViewController: UIViewController {
                 })
                 
                 
-                println("Error: \(appointmentsDB.lastErrorMessage())")
+                println("Error: \(doctorsDB.lastErrorMessage())")
             } else {
                 //status.text = "Contact Added"
                 
@@ -107,7 +112,7 @@ class AppointmentViewController: UIViewController {
                 })
             }
         } else {
-            println("Error: \(appointmentsDB.lastErrorMessage())")
+            println("Error: \(doctorsDB.lastErrorMessage())")
         }
         
         
@@ -122,66 +127,7 @@ class AppointmentViewController: UIViewController {
 
         
     }
-    
-    // Pop up date picker not working
-    
-    
-//    @IBAction func setNewAppointmentDate(sender: UITextField) {
-//        
-//        //let datePickerView:UIDatePicker = UIDatePicker()
-//        
-////        datePickerView.datePickerMode = UIDatePickerMode.Date
-////        
-////        sender.inputView = datePickerView
-////        
-////        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-//    
-//        datePickerView.datePickerMode = .Date
-//        newAppointmentDateField.inputView = datePickerView
-//        var toolBar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 44))
-//        toolBar.tintColor = UIColor.grayColor()
-//        var doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .Plain, target: self, action: "showSelectedDate")
-//        var space: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-//        toolBar.items = [space, doneBtn]
-//        newAppointmentDateField.inputAccessoryView = toolBar
-//    }
-//    
-//    func showSelectedDate()
-//    {
-//        var formatter: NSDateFormatter = NSDateFormatter()
-//        formatter.dateFormat = "dd/MMM/YYYY hh:min a"
-//        newAppointmentDateField.text = "\(formatter.stringFromDate(datePickerView.date))"
-//        newAppointmentDateField.resignFirstResponder()
-//    }
-//    
-//    func setDateField()
-//    {
-//        println("here")
-//        newAppointmentDateField.resignFirstResponder()
-//    }
-    
-//    func datePickerValueChanged(sender:UIDatePicker) {
-//        
-//        let dateFormatter = NSDateFormatter()
-//        
-//        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-//        
-//        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
-//        
-//        newAppointmentDateField.text = dateFormatter.stringFromDate(sender.date)
-//        newAppointmentDateField.resignFirstResponder()
-//        
-//    }
-    
-    
-    
-//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-//        
-//        var touch : UITouch! = touches.first as! UITouch
-//        
-//    }
-    
-    
+
     
     @IBAction func bottomBarControl(sender: UISegmentedControl) {
         
@@ -229,42 +175,4 @@ class AppointmentViewController: UIViewController {
 
     }
     
-    func initializeAppointmentsDatabase ()
-    {
-        // Check and create DB
-        
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
-        
-        let docsDir = dirPaths[0] as! String
-        
-        databasePath = docsDir.stringByAppendingPathComponent("appointments.db")
-        
-        println("Checking DB path for appointment")
-        println(databasePath)
-        
-        if !filemgr.fileExistsAtPath(databasePath as String) {
-            
-            println("Creating New Appointments DB")
-            
-            let appointmentsDB = FMDatabase(path: databasePath as String)
-            
-            if appointmentsDB == nil {
-                println("Error: \(appointmentsDB.lastErrorMessage())")
-            }
-            
-            if appointmentsDB.open() {
-                let sql_stmt = "CREATE TABLE IF NOT EXISTS APPOINTMENTS (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT, DATE TEXT, DESCRIPTION TEXT)"
-                if !appointmentsDB.executeStatements(sql_stmt) {
-                    println("Error: \(appointmentsDB.lastErrorMessage())")
-                }
-                appointmentsDB.close()
-            } else {
-                println("Error: \(appointmentsDB.lastErrorMessage())")
-            }
-        }
-        
-    }
-
-
 }

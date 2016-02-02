@@ -27,8 +27,6 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
         
         noteList.delegate = self
         noteList.dataSource = self
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

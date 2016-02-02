@@ -72,19 +72,19 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
         
         let docsDir = dirPaths[0] as! String
         
-        databasePath = docsDir.stringByAppendingPathComponent("appointments.db")
+        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
         
         let currentDate = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         
-        let appointmentsDB = FMDatabase(path: databasePath as String)
+        let doctorsDB = FMDatabase(path: databasePath as String)
         
-        if appointmentsDB.open() {
+        if doctorsDB.open() {
             
             let querySQL = "SELECT title, description, date FROM APPOINTMENTS"
             
-            let results:FMResultSet? = appointmentsDB.executeQuery(querySQL,withArgumentsInArray: nil)
+            let results:FMResultSet? = doctorsDB.executeQuery(querySQL,withArgumentsInArray: nil)
             
             if results?.next() == true {
                 
@@ -102,12 +102,11 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
                 
                 println("Record not found")
             }
-            appointmentsDB.close()
+            doctorsDB.close()
         } else {
-            println("Error: \(appointmentsDB.lastErrorMessage())")
+            println("Error: \(doctorsDB.lastErrorMessage())")
         }
         
     }
 
-    
 }
