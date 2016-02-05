@@ -38,7 +38,7 @@ class NotesViewController: UIViewController {
         let currentDate = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
-        println(formatter.stringFromDate(currentDate))
+        print(formatter.stringFromDate(currentDate))
         
         newNoteTopicField.text = ""
         newNoteDateField.text = formatter.stringFromDate(currentDate)
@@ -51,21 +51,21 @@ class NotesViewController: UIViewController {
     @IBAction func saveNewNoteButton(sender: UIButton) {
         
         newNoteView.hidden = true
-        var newNoteTopic = newNoteTopicField.text
-        var newNoteDate = newNoteDateField.text
-        var newNoteContent = newNoteContentField.text
+        _ = newNoteTopicField.text
+        _ = newNoteDateField.text
+        _ = newNoteContentField.text
         
         // Saving note to the database
         
         var databasePath = NSString()
-        let filemgr = NSFileManager.defaultManager()
+        _ = NSFileManager.defaultManager()
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent("doctorsdiary.sqlite")
         
-        let currentDate = NSDate()
+        _ = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         
@@ -83,7 +83,7 @@ class NotesViewController: UIViewController {
                 
                 // Generating alert
                 
-                var alert = UIAlertView(title: "Failed to add note", message: "Failed to add note", delegate: nil, cancelButtonTitle: "Close")
+                let alert = UIAlertView(title: "Failed to add note", message: "Failed to add note", delegate: nil, cancelButtonTitle: "Close")
                 alert.title = "Failed"
                 
                 // Move to the UI thread
@@ -93,11 +93,11 @@ class NotesViewController: UIViewController {
                 })
                 
                 
-                println("Error: \(doctorsDB.lastErrorMessage())")
+                print("Error: \(doctorsDB.lastErrorMessage())")
             } else {
                 //status.text = "Contact Added"
                 
-                var alert = UIAlertView(title: "Successfully saved note", message: "Successfully saved note", delegate: nil, cancelButtonTitle: "Close.")
+                let alert = UIAlertView(title: "Successfully saved note", message: "Successfully saved note", delegate: nil, cancelButtonTitle: "Close.")
                 alert.title = "Success"
                 
                 // Move to the UI thread
@@ -107,7 +107,7 @@ class NotesViewController: UIViewController {
                 })
             }
         } else {
-            println("Error: \(doctorsDB.lastErrorMessage())")
+            print("Error: \(doctorsDB.lastErrorMessage())")
         }
 
         

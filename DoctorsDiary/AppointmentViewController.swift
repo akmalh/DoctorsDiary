@@ -43,7 +43,7 @@ class AppointmentViewController: UIViewController {
         let currentDate = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
-        println(formatter.stringFromDate(currentDate))
+        print(formatter.stringFromDate(currentDate))
         
         newAppointmentTitleField.text = ""
         newAppointmentDateField.text = formatter.stringFromDate(currentDate)
@@ -55,21 +55,21 @@ class AppointmentViewController: UIViewController {
         
         createNewAppointmentView.hidden = true
         
-        var newAppointmentTitle = newAppointmentTitleField.text
-        var newAppointmentDate = newAppointmentDateField.text
-        var newAppointmentDescription = newAppointmentDescriptionField.text
+        _ = newAppointmentTitleField.text
+        _ = newAppointmentDateField.text
+        _ = newAppointmentDescriptionField.text
         
         // Saving appointments to the database
         
         var databasePath = NSString()
-        let filemgr = NSFileManager.defaultManager()
+        _ = NSFileManager.defaultManager()
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent("doctorsdiary.sqlite")
         
-        let currentDate = NSDate()
+        _ = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         
@@ -88,7 +88,7 @@ class AppointmentViewController: UIViewController {
                 
                 // Generating alert
                 
-                var alert = UIAlertView(title: "Failed to add appointment", message: "Failed to add appointment", delegate: nil, cancelButtonTitle: "Close")
+                let alert = UIAlertView(title: "Failed to add appointment", message: "Failed to add appointment", delegate: nil, cancelButtonTitle: "Close")
                 alert.title = "Failed"
                 
                 // Move to the UI thread
@@ -98,11 +98,11 @@ class AppointmentViewController: UIViewController {
                 })
                 
                 
-                println("Error: \(doctorsDB.lastErrorMessage())")
+                print("Error: \(doctorsDB.lastErrorMessage())")
             } else {
                 //status.text = "Contact Added"
                 
-                var alert = UIAlertView(title: "Successfully saved appointment", message: "Successfully saved appointment", delegate: nil, cancelButtonTitle: "Close.")
+                let alert = UIAlertView(title: "Successfully saved appointment", message: "Successfully saved appointment", delegate: nil, cancelButtonTitle: "Close.")
                 alert.title = "Success"
                 
                 // Move to the UI thread
@@ -112,7 +112,7 @@ class AppointmentViewController: UIViewController {
                 })
             }
         } else {
-            println("Error: \(doctorsDB.lastErrorMessage())")
+            print("Error: \(doctorsDB.lastErrorMessage())")
         }
         
         

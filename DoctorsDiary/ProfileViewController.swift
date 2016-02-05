@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         if !dbManager.createDB(){
-            println("DoctorsDiary: Failed to create DB")
+            print("DoctorsDiary: Failed to create DB")
         }
         
     }

@@ -28,7 +28,7 @@
 		C8B6C0DC1C53465C00734DA7 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D51C53465C00734DA7 /* FMDatabaseQueue.m */; };
 		C8B6C0DD1C53465C00734DA7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D71C53465C00734DA7 /* FMDatabaseAdditions.m */; };
 		C8B6C0DE1C53465C00734DA7 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C8B6C0D91C53465C00734DA7 /* FMDatabasePool.m */; };
-		C8B6C0E01C5350F100734DA7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B6C0DF1C5350F100734DA7 /* libsqlite3.dylib */; };
+		C8F87DD11C6528170011AF3B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C8F87DD01C6528170011AF3B /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +74,7 @@
 		C8B6C0D71C53465C00734DA7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		C8B6C0D81C53465C00734DA7 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
 		C8B6C0D91C53465C00734DA7 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		C8B6C0DF1C5350F100734DA7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C8F87DD01C6528170011AF3B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8B6C0E01C5350F100734DA7 /* libsqlite3.dylib in Frameworks */,
+				C8F87DD11C6528170011AF3B /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +99,7 @@
 		C8500E8C1C52239500E8F1DE = {
 			isa = PBXGroup;
 			children = (
-				C8B6C0DF1C5350F100734DA7 /* libsqlite3.dylib */,
+				C8F87DD01C6528170011AF3B /* libsqlite3.tbd */,
 				C8500E971C52239500E8F1DE /* DoctorsDiary */,
 				C8500EAD1C52239600E8F1DE /* DoctorsDiaryTests */,
 				C8500E961C52239500E8F1DE /* Products */,
@@ -219,7 +219,9 @@
 		C8500E8D1C52239500E8F1DE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Akmal Hossain";
 				TargetAttributes = {
 					C8500E941C52239500E8F1DE = {
@@ -346,6 +348,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -415,6 +418,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DoctorsDiary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "akmalhossain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DoctorsDiary/DoctorsDiary-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -428,6 +432,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DoctorsDiary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "akmalhossain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DoctorsDiary/DoctorsDiary-Bridging-Header.h";
 			};
@@ -447,6 +452,7 @@
 				);
 				INFOPLIST_FILE = DoctorsDiaryTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "akmalhossain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoctorsDiary.app/DoctorsDiary";
 			};
@@ -462,6 +468,7 @@
 				);
 				INFOPLIST_FILE = DoctorsDiaryTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "akmalhossain.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoctorsDiary.app/DoctorsDiary";
 			};

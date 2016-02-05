@@ -42,7 +42,7 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let myCell: UITableViewCell = appointmentList.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let myCell: UITableViewCell = appointmentList.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
         myCell.textLabel?.text = appointmentTitleListItems[indexPath.row]
         myCell.detailTextLabel?.text = appointmentDateListItems[indexPath.row]
@@ -51,12 +51,12 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         
-        var itemSelected = appointmentTitleListItems[indexPath.row]
+        _ = appointmentTitleListItems[indexPath.row]
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var selectedItem = NSString(string: (tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text)!)
+        _ = NSString(string: (tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text)!)
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
@@ -67,14 +67,14 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
     func loadAppointmentList ()
     {
         var databasePath = NSString()
-        let filemgr = NSFileManager.defaultManager()
+        _ = NSFileManager.defaultManager()
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent("doctorsdiary.sqlite")
         
-        let currentDate = NSDate()
+        _ = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         
@@ -101,11 +101,11 @@ class AppointmentContainerController: UIViewController,UITableViewDataSource, UI
                 
             } else {
                 
-                println("Record not found")
+                print("Record not found")
             }
             doctorsDB.close()
         } else {
-            println("Error: \(doctorsDB.lastErrorMessage())")
+            print("Error: \(doctorsDB.lastErrorMessage())")
         }
         
     }

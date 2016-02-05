@@ -17,22 +17,22 @@ class DBManager{
     
         // Creating DB and tables
         
-        println("AirCasting: Creating database and table")
+        print("AirCasting: Creating database and table")
         
-        let documentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-        let path = documentsFolder.stringByAppendingPathComponent("doctorsdiary.sqlite")
+        let documentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+        let path = (documentsFolder as NSString).stringByAppendingPathComponent("doctorsdiary.sqlite")
         ddDatabase = FMDatabase(path: path)
         
         if !ddDatabase.open() {
-            println("DoctorsDiary: Unable to open database")
+            print("DoctorsDiary: Unable to open database")
             return false
         }
         
         if !createTables() {
-            println("DoctorsDiary: Failed to create table: \(ddDatabase.lastErrorMessage())")
+            print("DoctorsDiary: Failed to create table: \(ddDatabase.lastErrorMessage())")
             return false
         } else{
-            println("DoctorsDiary: Database tables created successfully")
+            print("DoctorsDiary: Database tables created successfully")
         }
 
         return true
@@ -40,15 +40,15 @@ class DBManager{
     
     func createTables() -> Bool {
         
-        println("DoctorsDiary: createTables()")
+        print("DoctorsDiary: createTables()")
         
         if !ddDatabase.executeUpdate(dbQueries.create_appointments_table, withArgumentsInArray: nil) {
-            println("DoctorsDiary: Failed to create table: \(ddDatabase.lastErrorMessage())")
+            print("DoctorsDiary: Failed to create table: \(ddDatabase.lastErrorMessage())")
             return false
         }
         
         if !ddDatabase.executeUpdate(dbQueries.create_notes_table, withArgumentsInArray: nil) {
-            println("DoctorsDiary: Failed to create table: \(ddDatabase.lastErrorMessage())")
+            print("DoctorsDiary: Failed to create table: \(ddDatabase.lastErrorMessage())")
             return false
         }
         

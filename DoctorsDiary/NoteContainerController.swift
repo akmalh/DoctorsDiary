@@ -40,7 +40,7 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let myCell: UITableViewCell = noteList.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        let myCell: UITableViewCell = noteList.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
         
         myCell.textLabel?.text = noteListItems[indexPath.row]
         myCell.detailTextLabel?.text = noteDateListItems[indexPath.row]
@@ -49,12 +49,12 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         
-        var itemSelected = noteListItems[indexPath.row]
+        _ = noteListItems[indexPath.row]
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        var selectedItem = NSString(string: (tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text)!)
+        _ = NSString(string: (tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text)!)
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
@@ -65,14 +65,14 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
     func loadNoteList ()
     {
         var databasePath = NSString()
-        let filemgr = NSFileManager.defaultManager()
+        _ = NSFileManager.defaultManager()
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent("doctorsdiary.sqlite")
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent("doctorsdiary.sqlite")
         
-        let currentDate = NSDate()
+        _ = NSDate()
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         
@@ -84,7 +84,7 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
             
             let results:FMResultSet? = doctorsDB.executeQuery(querySQL,withArgumentsInArray: nil)
             
-            println(results?.columnCount())
+            print(results?.columnCount())
             
             if results?.next() == true {
                 
@@ -100,11 +100,11 @@ class NoteContainerController: UIViewController,UITableViewDataSource, UITableVi
                 
             } else {
                 
-                println("Record not found")
+                print("Record not found")
             }
             doctorsDB.close()
         } else {
-            println("Error: \(doctorsDB.lastErrorMessage())")
+            print("Error: \(doctorsDB.lastErrorMessage())")
         }
         
     }
